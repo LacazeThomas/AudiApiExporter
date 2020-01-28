@@ -35,7 +35,7 @@ func postToStruct(client *resty.Client, url string, param map[string]string, tar
 	return
 }
 
-func getMetrics(u UserProfil) (r AudiInfo) {
+func getMetrics(u userProfil) (r AudiInfo) {
 	client := resty.New()
 
 	postToStruct(client, "https://msg.audi.de/fs-car/core/auth/v1/Audi/DE/token", map[string]string{
@@ -91,7 +91,7 @@ func getMetrics(u UserProfil) (r AudiInfo) {
 	return
 }
 
-func getMetricsInf(u UserProfil, m Metrics) {
+func getMetricsInf(u userProfil, m Metrics) {
 	go func() {
 		for {
 			r := getMetrics(u)
@@ -137,7 +137,7 @@ func getMetricsInf(u UserProfil, m Metrics) {
 func main() {
 	log.SetFormatter(&log.JSONFormatter{})
 	
-	u := UserProfil{}
+	u := userProfil{}
 	err := env.Parse(&u)
 	checkErr(err)
 

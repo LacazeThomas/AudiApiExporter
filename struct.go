@@ -12,13 +12,13 @@ func checkErr(err error) {
 	}
 }
 
-type AudiToken struct {
+type audiToken struct {
 	AccessToken string `json:"access_token"`
 	TokenType   string `json:"token_type"`
 	ExpiresIn   int    `json:"expires_in"`
 }
 
-type AudiCar struct {
+type audiCar struct {
 	GetUserVINsResponse struct {
 		CSIDVins []struct {
 			CSID       string    `json:"CSID"`
@@ -29,12 +29,12 @@ type AudiCar struct {
 	} `json:"getUserVINsResponse"`
 }
 
-type UserProfil struct {
+type userProfil struct {
 	Username    string `env:"LOGIN"`
 	Password string `env:"PASSWORD"`
 }
 
-type AudiCarInfo struct {
+type audiCarInfo struct {
 	StoredVehicleDataResponse struct {
 		Vin         string `json:"vin"`
 		VehicleData struct {
@@ -56,7 +56,7 @@ type AudiCarInfo struct {
 }
 
 
-type AudiCharger struct {
+type audiCharger struct {
 	Charger struct {
 		Settings struct {
 			MaxChargeCurrent struct {
@@ -135,10 +135,10 @@ type AudiCharger struct {
 	} `json:"charger"`
 }
 
-
+//AudiInfo global info from Electic services
 type AudiInfo struct {
-	audiCharger AudiCharger
-	audiToken AudiToken
-	audiCar AudiCar
-	audiCarInfo AudiCarInfo
+	audiCharger audiCharger
+	audiToken audiToken
+	audiCar audiCar
+	audiCarInfo audiCarInfo
 }
