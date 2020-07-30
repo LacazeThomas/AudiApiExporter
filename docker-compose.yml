@@ -1,0 +1,14 @@
+version: "3.3"
+
+services:
+    audi:
+        build:
+        context: /root/go/src/audiApiExporter
+        dockerfile: /root/go/src/audiApiExporter/Dockerfile
+        container_name: audiApiExporter
+        restart: always
+        ports:
+            - 9158:9158
+        environment:
+            - LOGIN=***********
+            - PASSWORD=*****
